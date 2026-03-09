@@ -2,13 +2,13 @@
 <html>
 <head>
 <title>FusionChef AI</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 body{
-font-family: Arial;
+font-family: Arial, sans-serif;
 margin:0;
-background:white;
+background:#ffffff;
 text-align:center;
 }
 
@@ -57,10 +57,10 @@ border-radius:10px;
 <header>
 <h1>FusionChef AI</h1>
 <p>AI-powered fusion recipe generator for chefs and culinary students</p>
-<button onclick="generateDish()">Generate Recipe</button>
 </header>
 
 <section>
+
 <h2>Fusion Recipe Generator</h2>
 
 <select id="cuisine1">
@@ -85,51 +85,58 @@ border-radius:10px;
 </select>
 
 <br>
+
 <button onclick="generateDish()">Generate Fusion Dish</button>
 
 <h3 id="result"></h3>
+
 </section>
 
 <section>
+
 <h2>Example Fusion Dishes</h2>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1604908176997-4317e31b1d09">
+<img src="https://source.unsplash.com/250x200/?pizza">
 <p>Tandoori Chicken Pizza</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56">
+<img src="https://source.unsplash.com/250x200/?fried-rice">
 <p>Kimchi Fried Rice Samosa</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<img src="https://source.unsplash.com/250x200/?skewers">
 <p>Paneer Teriyaki Skewers</p>
 </div>
 
 </section>
 
 <section>
+
 <h2>About FusionChef AI</h2>
+
 <p>
-FusionChef AI helps chefs and culinary students create innovative fusion dishes
-by combining ingredients and cuisines using artificial intelligence.
+FusionChef AI helps chefs and culinary students generate innovative fusion dishes by combining cuisines and ingredients.
 </p>
+
 </section>
 
 <script>
+
 function generateDish(){
 
 let c1=document.getElementById("cuisine1").value;
 let c2=document.getElementById("cuisine2").value;
 let ing=document.getElementById("ingredient").value;
 
-let dish=c1+" "+c2+" Style "+ing+" Fusion";
+let dish=c1+" "+c2+" Style "+ing+" Fusion Dish";
 
 document.getElementById("result").innerHTML=dish;
 
 }
+
 </script>
 
 </body>

@@ -6,48 +6,48 @@
 
 <style>
 body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#ffffff;
-text-align:center;
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#ffffff;
+  text-align:center;
 }
 
 header{
-background:#ff7043;
-color:white;
-padding:40px;
+  background:#ff7043;
+  color:white;
+  padding:40px;
 }
 
 button{
-padding:12px 20px;
-background:#ff7043;
-color:white;
-border:none;
-cursor:pointer;
-margin-top:10px;
+  padding:12px 20px;
+  background:#ff7043;
+  color:white;
+  border:none;
+  cursor:pointer;
+  margin-top:10px;
 }
 
 section{
-padding:40px;
+  padding:40px;
 }
 
 select{
-padding:8px;
-margin:5px;
+  padding:8px;
+  margin:5px;
 }
 
 .card{
-display:inline-block;
-width:250px;
-margin:10px;
-border:1px solid #ddd;
-border-radius:10px;
-padding:10px;
+  display:inline-block;
+  width:250px;
+  margin:10px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:10px;
 }
 
 img{
-width:100%;
-border-radius:10px;
+  width:100%;
+  border-radius:10px;
 }
 </style>
 </head>
@@ -60,7 +60,6 @@ border-radius:10px;
 </header>
 
 <section>
-
 <h2>Fusion Recipe Generator</h2>
 
 <select id="cuisine1">
@@ -89,11 +88,9 @@ border-radius:10px;
 <button onclick="generateDish()">Generate Fusion Dish</button>
 
 <h3 id="result"></h3>
-
 </section>
 
 <section>
-
 <h2>Example Fusion Dishes</h2>
 
 <div class="card">
@@ -114,47 +111,45 @@ border-radius:10px;
 </section>
 
 <section>
-
 <h2>About FusionChef AI</h2>
 
-<p>
-FusionChef AI helps chefs and culinary students generate innovative fusion dishes by combining cuisines and ingredients.
-</p>
-
+<p>FusionChef AI helps chefs and culinary students generate innovative fusion dishes by combining cuisines and ingredients.</p>
 </section>
 
 <script>
 async function generateDish(){
 
-let c1 = document.getElementById("cuisine1").value;
-let c2 = document.getElementById("cuisine2").value;
-let ing = document.getElementById("ingredient").value;
+  let c1 = document.getElementById("cuisine1").value;
+  let c2 = document.getElementById("cuisine2").value;
+  let ing = document.getElementById("ingredient").value;
 
-let prompt = "Create a unique fusion recipe combining " + c1 + " and " + c2 + " cuisine using " + ing + ". Include ingredients and steps.";
+  let prompt = "Create a unique fusion recipe combining " + c1 + " and " + c2 + " cuisine using " + ing + ". Include ingredients and steps.";
 
-let API_KEY = "AIzaSyCeR4CmQdVw8eBBvIaFJoH011bN6LoF9Ag";
+  let API_KEY = "AIzaSyCpXokE7Dw0YKvjk9ykOw6s7QSTB4xL6pg";
 
-let response = await fetch(
-"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + API_KEY,
-{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-contents:[{
-parts:[{text:prompt}]
-}]
-})
-});
+  let response = await fetch(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + API_KEY,
+    {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        contents:[{
+          parts:[{text:prompt}]
+        }]
+      })
+    }
+  );
 
-let data = await response.json();
+  let data = await response.json();
 
-let result = data.candidates[0].content.parts[0].text;
+  let result = data.candidates[0].content.parts[0].text;
 
-document.getElementById("result").innerText = result;
+  document.getElementById("result").innerText = result;
 
 }
 </script>
 
-
+</body>
+</html>

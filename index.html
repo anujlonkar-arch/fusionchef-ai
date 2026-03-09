@@ -1,28 +1,136 @@
-Create a modern responsive website for a Chef AI platform called "FusionChef AI".
+<!DOCTYPE html>
+<html>
+<head>
+<title>FusionChef AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-The website should include:
+<style>
+body{
+font-family: Arial;
+margin:0;
+background:white;
+text-align:center;
+}
 
-1. Homepage
-- Title: FusionChef AI
-- Subtitle: AI-powered fusion recipe generator for chefs and culinary students
-- Button: Generate Recipe
+header{
+background:#ff7043;
+color:white;
+padding:40px;
+}
 
-2. Recipe Generator Section
-- User selects Cuisine 1
-- User selects Cuisine 2
-- User selects Main Ingredient
-- Button: Generate Fusion Dish
+button{
+padding:12px 20px;
+background:#ff7043;
+color:white;
+border:none;
+cursor:pointer;
+margin-top:10px;
+}
 
-3. Example Fusion Dishes Section
-Display sample dishes with images.
+section{
+padding:40px;
+}
 
-4. About Section
-Explain that the platform helps chefs create innovative fusion dishes using AI.
+select{
+padding:8px;
+margin:5px;
+}
 
-5. Clean modern design
-- White background
-- Minimalist layout
-- Food themed colors
-- Mobile friendly
+.card{
+display:inline-block;
+width:250px;
+margin:10px;
+border:1px solid #ddd;
+border-radius:10px;
+padding:10px;
+}
 
-Generate the complete HTML, CSS, and JavaScript code in one file.
+img{
+width:100%;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>FusionChef AI</h1>
+<p>AI-powered fusion recipe generator for chefs and culinary students</p>
+<button onclick="generateDish()">Generate Recipe</button>
+</header>
+
+<section>
+<h2>Fusion Recipe Generator</h2>
+
+<select id="cuisine1">
+<option>Indian</option>
+<option>Japanese</option>
+<option>Italian</option>
+<option>Mexican</option>
+</select>
+
+<select id="cuisine2">
+<option>Thai</option>
+<option>Korean</option>
+<option>French</option>
+<option>Chinese</option>
+</select>
+
+<select id="ingredient">
+<option>Chicken</option>
+<option>Paneer</option>
+<option>Shrimp</option>
+<option>Mushroom</option>
+</select>
+
+<br>
+<button onclick="generateDish()">Generate Fusion Dish</button>
+
+<h3 id="result"></h3>
+</section>
+
+<section>
+<h2>Example Fusion Dishes</h2>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908176997-4317e31b1d09">
+<p>Tandoori Chicken Pizza</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56">
+<p>Kimchi Fried Rice Samosa</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<p>Paneer Teriyaki Skewers</p>
+</div>
+
+</section>
+
+<section>
+<h2>About FusionChef AI</h2>
+<p>
+FusionChef AI helps chefs and culinary students create innovative fusion dishes
+by combining ingredients and cuisines using artificial intelligence.
+</p>
+</section>
+
+<script>
+function generateDish(){
+
+let c1=document.getElementById("cuisine1").value;
+let c2=document.getElementById("cuisine2").value;
+let ing=document.getElementById("ingredient").value;
+
+let dish=c1+" "+c2+" Style "+ing+" Fusion";
+
+document.getElementById("result").innerHTML=dish;
+
+}
+</script>
+
+</body>
+</html>

@@ -125,19 +125,32 @@ FusionChef AI helps chefs and culinary students generate innovative fusion dishe
 
 <script>
 
-function generateDish(){
+<script>
+async function generateDish(){
 
 let c1=document.getElementById("cuisine1").value;
 let c2=document.getElementById("cuisine2").value;
 let ing=document.getElementById("ingredient").value;
 
-let dish=c1+" "+c2+" Style "+ing+" Fusion Dish";
+let prompt = "Create a unique fusion recipe combining "+c1+" and "+c2+" cuisine using "+ing+". Include dish name, ingredients and cooking steps.";
 
-document.getElementById("result").innerHTML=dish;
+let API_KEY = "AIzaSyCeR4CmQdVw8eBBvIaFJoH011bN6LoF9Ag";
+
+let response = await fetch(
+"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key="+API_KEY,
+{
+method:"POST",
+headers:{ "Content-Type":"application/json" },
+body:JSON.stringify({
+contents:[{parts:[{text:prompt}]}]
+})
+});
+
+let data = await response.json();
+
+let result = data.candidates[0].content.parts[0].text;
+
+document.getElementById("result").innerText=result;
 
 }
-
 </script>
-
-</body>
-</html>
